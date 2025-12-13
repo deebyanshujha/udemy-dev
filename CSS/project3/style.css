@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+}
+
+.container {
+  background: linear-gradient(135deg, #8a2be2, #4169e1);
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 60%;
+  width: 40%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.content img {
+  position: relative;
+  width: 40%;
+  height: 40%;
+}
+
+.content h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #666;
+  margin-top: 0px;
+}
+
+.content label {
+  color: #666;
+  text-align: center;
+}
+
+#Email {
+  padding: 10px;
+  border: none;
+
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.content button {
+  display: block;
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, #8a2be2, #4169e1);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.content button:hover {
+  background: linear-gradient(135deg, #4169e1, #8a2be2);
+}
