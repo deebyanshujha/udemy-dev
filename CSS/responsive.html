@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.764);
+        }
+
+        .responsive-div{
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            color: #fff;
+            font-size: 24px;
+            background-color: rgb(174, 118, 220);
+        }
+
+        @media (max-width: 600px){
+            .responsive-div{
+                background-color: #2498db;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 850px){
+            body{
+                display: flex;
+                align-items: baseline;
+            }
+            .responsive-div{
+                background-color: aquamarine;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="responsive-div">
+        this div changes color based on 
+    </div>
+</body>
+</html>
