@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(240deg, skyblue, pink), green;
+    height: 100vh;
+    font-family: cursive;
+}
+
+.head{
+    padding: 10px;
+    border-radius: 10px;
+    color: blue;
+    font-size: 30px;
+    background: linear-gradient(130deg, orange, white, lime);
+}
+
+.para1{
+    font-weight: 500;
+    font-size: 20px;
+    color: blue;
+}
