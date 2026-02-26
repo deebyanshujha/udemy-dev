@@ -1,22 +1,44 @@
-const fs = require("fs");
-const filePath = "./tasks.json";
+const fs = require('fs'); //file system module
+const { argv } = require('process');
+const { json } = require('stream/consumers');
 
-const loadTask = ()=>{
+const filePath = './tasks.json';
+
+const loadTasks = ()=>{
     try{
-       const dataBuffer = fs.readFileSync(filePath); 
-       const dataJSON = dataBuffer.toString();
-       return JSON.parse(dataJSON);
+        const dataBuffer = fs.readFileSync(filePath);
+        const dataJSON = dataBuffer.toString();
+        return JSON.parse(dataJSON);
     }catch(error){
         return [];
     }
 }
 
-function saveTasks(Tasks){
-    const dataJSON = JSON.stringify(Tasks);
+const saveTasks = (tasks)=>{
+    const dataJSON = JSON.stringify(tasks);
     fs.writeFileSync(filePath,dataJSON);
-    console.log("Tasks saved!")
-
 }
+
+const addTask = (task)=>{
+    const tasks = loadTasks();
+    tasks.push({task});
+    saveTasks(tasks);
+    console.log("tasks added");
+}
+
+const listTasks = ()=>{
+    const tasks = loadTasks();
+    tasks.forEach((task,index) => {
+        console.log(`${index+1} - ${task.task}`);
+    });
+}
+
+const removeTask = (delIdx)=>{
+    const tasks = loadTasks();
+    const newTasks = tasks.filter((task,index) => index !== delIdx);
+    saveTasks(newTasks)
+}
+
 
 const command = process.argv[2];
 const argument = process.argv[3];
@@ -24,28 +46,10 @@ const argument = process.argv[3];
 if(command === 'add'){
     addTask(argument);
 }else if(command === 'list'){
-    listTask();
+    listTasks()
 }else if(command === 'remove'){
-    removeTask(argument);
+    removeTask(parseInt(argument))
 }else{
-    console.log('command not found');
+    console.log("command not found")
 }
 
-function addTask(argument){
-    const Tasks = loadTask()
-    Tasks.push(argument);
-    saveTasks(Tasks)
-}
-
-function listTask(){
-    const Tasks = loadTask();
-    Tasks.forEach((task)=>{
-        console.log(`Task: ${task}`);
-    })
-}
-
-function removeTask(argument){
-    let tasks = loadTask();
-    tasks = tasks.filter(task => task !== argument);
-    saveTasks(tasks);
-}
